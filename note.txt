@@ -1,0 +1,8 @@
+Interface Admin
+Listes des Contribuables ayant le NIF (cad Confirmer =1)
+Listes des Contribuables en cours de Demande (cad Confirmer =0) d ao asina Crud kely WE refa APPROUVÉ(UPDATE Confirmer = 1) SY REJETER(Delete from Contribuables)
+Listes Des Declarants (Asivo Triage rah misy fotoana)
+A propos de l'admin (zany we ampio zany ny ary @ bd ohatra we information grade sy ny tariny)
+
+Comment ajouter une photo dans une Base de Donnée
+Comment uploader une photo depuis la formulaire
