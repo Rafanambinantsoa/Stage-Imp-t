@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="kim">
+    <textarea id="textarea" oninput="compterMot()" rows="10" cols="50"></textarea>
+    <br>
+    <p>Nombre de mots: <span id="afficher">0</span></p>
+    <button id="button">afficher</button>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        function compterMot() {
+            var mots = document.getElementById("textarea").value;
+            var nombre = 0;
+            var split = mots.split(' ');
+            for (var i = 0; i < split.length; i++) {
+                if (split[i] != "") {
+                    nombre += 1;
+                }
+            }
+            document.getElementById("afficher").innerHTML = nombre;
+        }
+        $(document).ready(function () {
+            $('#button').click(function () {
+            var kim = $('#kim').val().length;      
+                alert(kim);
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>

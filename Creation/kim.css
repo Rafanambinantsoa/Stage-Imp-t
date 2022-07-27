@@ -1,0 +1,65 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url('contemplation\ de\ la\ ville.jpg');
+    background-size: cover;
+    font-family:"Sofia", sans-serif;
+}
+.title{
+    text-align: center;
+    padding: 50px 0 20px;
+}
+.title h1 {
+    margin: 0;
+    padding: 0;
+    color: #262626;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+.container{
+    width: 70%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    /* pour centrer le container */
+    margin: 0 auto;
+    border: none;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+.container .left{
+    float: left;
+    width: 50%;
+    height: 400px;
+}
+.container .right{
+    float: right;
+    width: 50%;
+    height: 400px;
+}
+.formbox{
+    width: 100%;
+    padding: 50px 40px;
+    box-sizing: border-box;
+    height: 400px;
+}
+.formbox input{
+    margin-bottom: 20px;
+    border: none;
+    width: 100%;
+    background: none;
+    font-size: 1rem;
+    height: 40px;
+    color: rgb(225, 231, 122);
+    border-bottom: 2px solid white;
+    outline: none;
+
+}
+.formbox input:focus{
+    border-bottom: 2px solid rgb(156, 136, 12);
+}
+.formbox input::placeholder{
+    color: rgb(160, 216, 29);
+    font-size: 1rem;
+}
+.formbox .valider{
+    margin-top: 1cm;
+}

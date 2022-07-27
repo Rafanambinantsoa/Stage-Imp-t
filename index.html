@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="printme">
+        Marie nskdljslkdj Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nisi voluptatum debitis est
+        soluta. Vel, hic repudiandae perferendis doloremque cupiditate quas id natus at obcaecati reprehenderit tempore,
+        earum impedit! Quod.
+    </div>
+    <button id="impre"> Imprimer</button>
+    <script src="https://cdn.jsdelivr.net/npm/print.js@1.0.18/src/print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#impre').click(function(){
+                $('.printme').print();
+            })
+        })
+    </script>
+
+</body>
+
+</html>

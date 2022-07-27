@@ -1,0 +1,28 @@
+*{
+    background-color: brown;
+}
+
+.h{
+    position: relative;
+    top: 1.2cm;
+}
+.line{
+    position: absolute;
+    top: 13%;
+    left: 3cm;
+}
+.la{
+    background-color: red;
+}
+.formulaire{
+    position: relative;
+    top: 2.5cm;
+}
+.input-group{
+    margin-top: 0.6cm;
+}
+
+.bouton{
+    position: relative;
+    bottom: -150px;
+}

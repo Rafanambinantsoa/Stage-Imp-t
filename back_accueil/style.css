@@ -1,0 +1,122 @@
+*,::before , ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-image: url('back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+
+}
+.container-first{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+h4{
+    text-transform: uppercase;
+    font-size: 110px;
+    color: #f1f1f1;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h4 span {
+    position: relative;
+    font-size: 50px;
+    font-family: cursive;
+}
+.container-btns{
+    position: relative;
+    top: 50px;
+
+}
+.btn-first{
+    border: 2px solid #f1f1f1;
+    background: transparent;
+    width: 300px;
+    height: 34px;
+    color: #f1f1f1;
+    cursor: pointer;
+
+}
+.btn-first:nth-child(1){
+    margin-right: 30px;
+}
+.btn-first:hover{
+    transition: all 0.3s ease-in-out;
+    background: white;
+    color: #333
+
+}
+.lignes {
+    position: absolute;
+    top: 6%;
+    left: 1.6cm;
+
+}
+.l1{
+    width: 250px;
+    height: 3px;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+.l2{
+    width: 200px;
+    height: 3px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    position: relative;
+    top: 15px;
+}
+.l3{
+    width: 140px;
+    height: 3px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    position: relative;
+    top: 28px;
+}
+.logo{
+    position: relative;
+    right: 5cm;
+    width: 70px;
+    height: 80px;
+    cursor: pointer;
+}
+.medias{
+    position: absolute;
+    right: 3.3%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+}
+.bulle{
+    width: 70px;
+    height: 70px;
+    border: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    background: #f1f1f1;
+    cursor: pointer;
+    position: relative;
+    top: 200px;
+
+}
+.logos-medias{
+    width: 40px;
+    height: 40px;
+}
+#curi{
+    cursor: pointer;
+}
+
+

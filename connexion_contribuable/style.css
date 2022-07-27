@@ -1,0 +1,34 @@
+.table{
+    border: 1;
+    border-color: solid black;
+}
+.kim{
+    text-align: right;
+}
+.table1{
+    border-collapse: separate;
+    border-spacing: 8px;
+}
+ul{
+    list-style: none;
+}
+.droite{
+    margin-left: 10cm;
+}
+.display{
+    display: flex;
+    margin-bottom: 6px;
+}
+.margin{
+    margin-top: 5px;
+}
+.margin2{
+    margin-top: 22px;
+}
+.para{
+    text-align: center;
+}
+.tsukasa{
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
