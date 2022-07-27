@@ -23,6 +23,7 @@
                 <input type="text"id="prenom" placeholder="Prenom "autocomplete="off">
                 <input type="number"id="cin" placeholder="C I N "autocomplete="off">
                 <input type="number"id="stat" placeholder="Num_Stat "autocomplete="off">
+                <input type="number"id="confirmer" value="0" hidden>
             </div>
         </div>
         <div class="right">

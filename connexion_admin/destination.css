@@ -1,0 +1,113 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: 'cursive' , sans-serif;
+}
+header{
+    position: fixed;
+    background: #22242A;
+    padding: 20px;
+    width: 100%;
+    height: 80px;
+}
+.left_area h3{
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 900;
+}
+.logout_btn{
+    padding: 5px;
+    background: #1983D3;
+    text-decoration: none;
+    float: right;
+    border-radius: 2px;
+    margin-top: -30px;
+    margin-right: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    color:#fff;
+    transform: 0.5s;
+}
+.logout_btn:hover{
+    background: #2596be;
+    color: #fff;
+}
+.sidebar{
+    background: #2F323A;
+    margin-top: 80px;
+    padding-top: 30px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+
+}
+.sidebar .profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+}
+.sidebar h4{
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.sidebar a{
+    color: #fff;
+    display: block;
+    width: 100%;
+    /* espacement entre les  */
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+}
+.sidebar a:hover{
+    background: #1983D3;
+}
+.sidebar i{
+    padding-right: 14px;
+}
+label #sidebar_btn{
+    z-index: 1;
+    color: #fff;
+    position: fixed;
+    cursor: pointer;
+    left: 300px;
+    font-size: 30px;
+    margin: 5px 0;
+
+}
+label #sidebar_btn:hover{
+    color: #1983D3;
+}
+#check:checked ~ .sidebar{
+    left: -190px;
+}
+#check:checked ~ .sidebar a span{
+    display: none;
+}
+#check:checked ~ .sidebar a {
+    font-size: 20px;
+    margin-left: 170px;
+    width: 80px;
+}
+.content{
+    margin-left: 250px;
+    background: url('paysage-fond-ecran-montagne-soleil-violet-wallpaper-favorisxp.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+    transition-property: left;
+}
+#check:checked ~ .content{
+    margin-left: 60px;
+}

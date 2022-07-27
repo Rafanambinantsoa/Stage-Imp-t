@@ -20,57 +20,76 @@ $(document).ready(function () {
         var stat = $('#stat').val();
         var nom_commercial = $('#nom_commercial').val();
         var stot = $('#stat').val().length;
+        var confirmer = $('#confirmer').val();
+        
         // alert(stot);
 
 
         if (nom != "" && prenom != "" && cin != "" && activite != "" && addresse != "" && stat != "" && lieu_exploitaion != "") {
-            // alert("non vide");
-            if (cin2 < 12 || stot < 17 ||(cin2 <12 && stot < 17) ) {
+            if((cin2 < 12 && stot < 17) || cin2 < 12 || stot <17 ){
+                // alert('cin ou bien nif incomplète');
                 Swal.fire(
                     'Veuiller',
-                    'vérifier votre CIN et Num_Statistique',
-                    'error' //icon ny eto
+                    'vérifier votre CIN ou bien votre NIF',
+                    'info' //icon ny eto
                 )
-                alert(stat);
-                // alert("cin insuffisant");
-            }
-            else {
+            }else{
                 $.ajax({
-                    url: 'marie.php',
-                    type: 'POST',
-                    data: {
-                        nom: nom,
-                        prenom: prenom,
-                        cin: cin,
-                        activite: activite,
-                        addresse: addresse,
-                        lieu_exploitaion: lieu_exploitaion,
-                        stat: stat,
-                        nom_commercial: nom_commercial
-                    },
-                    success: function (suc) {
-                        // alert(suc);
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Merci',
-                            text: 'Votre demande de nif est bien envoyé '
-                        })
-                        $('#nom').val('');
-                        $('#prenom').val('');
-                        $('#activite').val('');
-                        $('#cin').val('');
-                        $('#lieu_exploitaion').val('');
-                        $('#addresse').val('');
-                        $('#stat').val('');
-                        $('#nom_commercial').val('');
+                    url:'check_cin.php',
+                    type:'POST',
+                    data:{cin:cin},
+                    success:function(dio){
+                        if(dio =='nope'){
+                            // alert('Ce CIN  a déja un NIF');
+                            Swal.fire(
+                                'Désolé',
+                                'ce CIN possède déja un NIF',
+                                'warning' //icon ny eto
+                            )
+                        }
+                        else{
+                            $.ajax({
+                                url:'marie.php',
+                                type:'post',
+                                data:{
+                                    nom:nom,
+                                    prenom:prenom,
+                                    cin:cin,
+                                    activite:activite,
+                                    addresse:addresse,
+                                    lieu_exploitaion:lieu_exploitaion,
+                                    stat:stat,
+                                    nom_commercial:nom_commercial,
+                                    confirmer:confirmer
+                                },
+                                success:function(auf){
+                                    if(auf == 'success'){
+                                        // alert('data inserted');
+                                        Swal.fire(
+                                            'Merci',
+                                            'Votre Demande de NIF a été bien envoyé',
+                                            'success' //icon ny eto
+                                        )
+                                        $('#nom').val("");
+                                        $('#prenom').val("");
+                                        $('#cin').val("");
+                                        $('#activite').val("");
+                                        $('#addresse').val("");
+                                        $('#lieu_exploitaion').val("");
+                                        $('#stat').val("");
+                                        $('#nom_commercial').val("");
+                                    }
+                                    else{
+                                        alert('nope');
+                                    }
+                                }
+                            })
+                        }
                     }
                 })
             }
 
-
         }
-        // else if( ){
-        // }
         else {
             // alert("compete tout les champs de saisie");
             // toastr.error('<b>Veuiller Remplir les champs Vide</b>', '');
