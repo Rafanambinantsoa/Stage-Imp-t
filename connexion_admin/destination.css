@@ -101,12 +101,28 @@ label #sidebar_btn:hover{
 }
 .content{
     margin-left: 250px;
-    background: url('paysage-fond-ecran-montagne-soleil-violet-wallpaper-favorisxp.jpg');
+    padding-top: 3cm;
+    /* background: url('paysage-fond-ecran-montagne-soleil-violet-wallpaper-favorisxp.jpg'); */
     background-position: center;
     background-size: cover;
     height: 100vh;
     transition: 0.5s;
     transition-property: left;
+}
+.content h3{
+    text-align: center;
+}
+.content .con{
+    display: none;
+}
+.content input:checked +.con{
+    display: block;
+}
+.content input[type="radio"]{
+    display: none;
+}
+.content #tabl{
+    margin-left: 2cm;
 }
 #check:checked ~ .content{
     margin-left: 60px;

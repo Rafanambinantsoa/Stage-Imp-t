@@ -44,18 +44,76 @@ if (!isset($_SESSION['admini'])) {
             <img src="mar.jpg" alt="" class="profile_image">
             <h4><?php echo $_SESSION['admini'] ?></h4>
         </center>
-        <a href="#"><i class="fa-solid fa-desktop"></i><span>Dashboard</span></a>
-        <a href="#"><i class="fa-solid fa-cogs"></i><span>Components</span></a>
-        <a href="#"><i class="fa-solid fa-table"></i><span>Tables</span></a>
-        <a href="#"><i class="fa-solid fa-th"></i><span>Forms</span></a>
+        <a href="#"><i class="fa-solid fa-desktop"></i><span> <label for="confirmer">NIF confirmer</label> </span></a>
+        <a href="#"><i class="fa-solid fa-cogs"></i><span> <label for="nonconfirmer">Demande en Cours</label> </span></a>
+        <a href="#"><i class="fa-solid fa-table"></i><span> <label for="declarant">Les Declarants</label></span></a>
+        <a href="#"><i class="fa-solid fa-briefcase"></i><span> <label for="activite">Les Modifications</label></span></a>
         <a href="#"><i class="fa-solid fa-info-circle"></i><span>About</span></a>
-        <a href="#"><i class="fa-solid fa-sliders-h"></i><span>Settings</span></a>
     </div>
     <!-- Side bar end -->
 
     <!-- Content Start -->
     <div class="content">
+        <!-- confirmer -->
+        <input type="radio" id="confirmer" name="tabs" checked>
+        <div class="con">
+            <h3>Contribuables ayant un NIF confirmer</h3>
+        </div>
+        <!-- Non - Confirmer -->
+        <input type="radio" id="nonconfirmer" name="tabs">
+        <div class="con">
+            <h3>Contribuables ayant un NIF non-confirmer </h3>
+            <table class="table table-hover" id="tabl">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>NIF</th>
+                        <th>Activité</th>
+                    </tr>
+                </thead>
+                <tbody>
 
+                </tbody>
+            </table>
+        </div>
+        <!-- Declarant -->
+        <input type="radio" id="declarant" name="tabs">
+        <div class="con">
+            <h3>Listes des déclarants </h3>
+            <table class="table table-hover" id="tabl">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>NIF</th>
+                        <th>Activité</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Declarant -->
+        <input type="radio" id="activite" name="tabs">
+        <div class="con">
+            <h3>Modifications </h3>
+            <table class="table table-hover" id="tabl">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>NIF</th>
+                        <th>Activité</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- Content End -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
