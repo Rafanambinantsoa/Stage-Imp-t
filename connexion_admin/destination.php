@@ -15,6 +15,7 @@ if (!isset($_SESSION['admini'])) {
     <title>Admin</title>
     <link rel="stylesheet" href="destination.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
@@ -54,10 +55,14 @@ if (!isset($_SESSION['admini'])) {
 
     <!-- Content Start -->
     <div class="content">
+
         <!-- confirmer -->
         <input type="radio" id="confirmer" name="tabs" checked>
         <div class="con">
             <h3>Contribuables ayant un NIF confirmer</h3>
+            <div id="displaydatatable">
+            </div>
+            
         </div>
         <!-- Non - Confirmer -->
         <input type="radio" id="nonconfirmer" name="tabs">
@@ -66,7 +71,7 @@ if (!isset($_SESSION['admini'])) {
             <table class="table table-hover" id="tabl">
                 <thead>
                     <tr>
-                        <th>Nom</th>
+                    deletenif<th>Nom</th>
                         <th>Prenom</th>
                         <th>NIF</th>
                         <th>Activité</th>
@@ -88,7 +93,7 @@ if (!isset($_SESSION['admini'])) {
                         <th>Prenom</th>
                         <th>NIF</th>
                         <th>Activité</th>
-                    </tr>
+                    </tr>deletenif
                 </thead>
                 <tbody>
 
@@ -122,7 +127,36 @@ if (!isset($_SESSION['admini'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 
     <script>
+        function mirak(deletenif){
+            $.ajax({
+                url:"delete.php",
+                type:'POST',
+                data:{
+                    deletenif:deletenif
+                },
+                success:function(data,status){
+                    displaydata();
+                }
+            })
+        }
+
+        function displaydata() {
+            var displaydata = "true";
+            $.ajax({
+                url: 'afficher.php',
+                type: 'POST',
+                data: {
+                    didsplaysend: displaydata
+                },
+                success: function(data, status) {
+                    $('#displaydatatable').html(data);
+
+                }
+            })
+        }
+
         $(document).ready(function() {
+            displaydata();
             Swal.fire({
                 icon: 'success',
                 title: 'Connecté',
