@@ -45,8 +45,8 @@ if (!isset($_SESSION['admini'])) {
             <img src="mar.jpg" alt="" class="profile_image">
             <h4><?php echo $_SESSION['admini'] ?></h4>
         </center>
-        <a href="#"><i class="fa-solid fa-desktop"></i><span> <label for="confirmer">NIF confirmer</label> </span></a>
-        <a href="#"><i class="fa-solid fa-cogs"></i><span> <label for="nonconfirmer">Demande en Cours</label> </span></a>
+        <a href="#"><i class="fa-solid fa-cogs"></i><span> <label for="confirmer">Demande en Cours</label> </span></a>
+        <a href="#"><i class="fa-solid fa-desktop"></i><span> <label for="nonconfirmer">NIF confirmer</label> </span></a>
         <a href="#"><i class="fa-solid fa-table"></i><span> <label for="declarant">Les Declarants</label></span></a>
         <a href="#"><i class="fa-solid fa-briefcase"></i><span> <label for="activite">Les Modifications</label></span></a>
         <a href="#"><i class="fa-solid fa-info-circle"></i><span>About</span></a>
@@ -59,46 +59,22 @@ if (!isset($_SESSION['admini'])) {
         <!-- confirmer -->
         <input type="radio" id="confirmer" name="tabs" checked>
         <div class="con">
-            <h3>Contribuables ayant un NIF confirmer</h3>
+            <h3>Contribuables en Cours de demande de NIF</h3>
             <div id="displaydatatable">
             </div>
-            
+
         </div>
         <!-- Non - Confirmer -->
         <input type="radio" id="nonconfirmer" name="tabs">
         <div class="con">
-            <h3>Contribuables ayant un NIF non-confirmer </h3>
-            <table class="table table-hover" id="tabl">
-                <thead>
-                    <tr>
-                    deletenif<th>Nom</th>
-                        <th>Prenom</th>
-                        <th>NIF</th>
-                        <th>Activité</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+            <h3>Contribuables ayant un NIF confirmer </h3>
+            <div id="nifconfirmer"></div>
         </div>
         <!-- Declarant -->
         <input type="radio" id="declarant" name="tabs">
         <div class="con">
             <h3>Listes des déclarants </h3>
-            <table class="table table-hover" id="tabl">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>NIF</th>
-                        <th>Activité</th>
-                    </tr>deletenif
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+            <div id="declarant_hono"></div>
         </div>
 
         <!-- Declarant -->
@@ -127,19 +103,33 @@ if (!isset($_SESSION['admini'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 
     <script>
-        function mirak(deletenif){
+        //approuver des nif en cours
+        function approuver(akutagawa) {
             $.ajax({
-                url:"delete.php",
-                type:'POST',
-                data:{
-                    deletenif:deletenif
+                url: "confirmer.php",
+                type: 'POST',
+                data: {
+                    akutagawa: akutagawa
                 },
-                success:function(data,status){
+                success: function(data, status) {
                     displaydata();
                 }
             })
         }
-
+        //rejet des nif en cours
+        function mirak(deletenif) {
+            $.ajax({
+                url: "delete.php",
+                type: 'POST',
+                data: {
+                    deletenif: deletenif
+                },
+                success: function(data, status) {
+                    displaydata();
+                }
+            })
+        }
+        //Affichage des demande en cours de nif
         function displaydata() {
             var displaydata = "true";
             $.ajax({
@@ -150,13 +140,48 @@ if (!isset($_SESSION['admini'])) {
                 },
                 success: function(data, status) {
                     $('#displaydatatable').html(data);
+                    confirmer();
+                }
+            })
+        }
+        //affichage des nif confirmer
+        function confirmer() {
+            var hashbira = "true";
+            $.ajax({
+                url: 'nifconfirmer.php',
+                type: 'POST',
+                data: {
+                    hashbira: hashbira
+                },
+                success: function(data, status) {
+                    $('#nifconfirmer').html(data);
+
+                }
+            })
+        }
+        //Listes des Declarant
+        function declarant() {
+            var inosuke = "true";
+            $.ajax({
+                url: 'affiche_declarant.php',
+                type: 'POST',
+                data: {
+                    inosuke: inosuke
+                },
+                success: function(data, status) {
+                    $('#declarant_hono').html(data);
 
                 }
             })
         }
 
         $(document).ready(function() {
+            //non-confirmer
             displaydata();
+            //confirmer
+            confirmer();
+            //les declarants
+            declarant();
             Swal.fire({
                 icon: 'success',
                 title: 'Connecté',

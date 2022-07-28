@@ -1,6 +1,6 @@
 <?php
 $con = mysqli_connect('localhost', 'root', '', 'karim');
-if (isset($_POST['didsplaysend'])) {
+if (isset($_POST['hashbira'])) {
     $table = "<table class='table table-hover'>
             <thead>
                 <tr>
@@ -11,7 +11,7 @@ if (isset($_POST['didsplaysend'])) {
                     <th scope='col'>Lieu d'exploitation</th>
                 </tr>
             </thead>";
-            $query = 'SELECT * from contribuables where confirmer = 0';
+            $query = 'SELECT * from contribuables where confirmer = 1';
             $result =mysqli_query($con , $query);
             while($row = mysqli_fetch_assoc($result)){
                 $nom = $row['nom'];
@@ -28,9 +28,6 @@ if (isset($_POST['didsplaysend'])) {
                     <td>$activite</td>
                     <td>$lieu_ex</td>
                     <td>
-                    <button class='btn btn-danger' onclick='mirak($nif)' ><i class='fa-solid fa-x' style='margin-right: 7px;' ></i>Rejeter</button>
-                        <button class='btn btn-success' onclick='approuver($nif)' ><i class='fa-solid fa-check' style='margin-right: 7px;' ></i>Approuvé</button>
-                    </td>
                 </tr>";
             }
             $table.='</table>';
