@@ -49,41 +49,57 @@ $(document).ready(function () {
                         }
                         else{
                             $.ajax({
-                                url:'marie.php',
-                                type:'post',
-                                data:{
-                                    nom:nom,
-                                    prenom:prenom,
-                                    cin:cin,
-                                    activite:activite,
-                                    addresse:addresse,
-                                    lieu_exploitaion:lieu_exploitaion,
-                                    stat:stat,
-                                    nom_commercial:nom_commercial,
-                                    confirmer:confirmer
-                                },
-                                success:function(auf){
-                                    if(auf == 'success'){
-                                        // alert('data inserted');
+                                url:'check_stat.php',
+                                type:'POST',
+                                data:{stat : stat},
+                                success:function(ike) {
+                                    if (ike=='non') {
                                         Swal.fire(
-                                            'Merci',
-                                            'Votre Demande de NIF a été bien envoyé',
-                                            'success' //icon ny eto
+                                            'Désolé',
+                                            'ce Numéro Statistique possède déja un NIF',
+                                            'warning' //icon ny eto
                                         )
-                                        $('#nom').val("");
-                                        $('#prenom').val("");
-                                        $('#cin').val("");
-                                        $('#activite').val("");
-                                        $('#addresse').val("");
-                                        $('#lieu_exploitaion').val("");
-                                        $('#stat').val("");
-                                        $('#nom_commercial').val("");
-                                    }
-                                    else{
-                                        alert('nope');
+                                    } else {
+                                        $.ajax({
+                                                url:'marie.php',
+                                                type:'post',
+                                                data:{
+                                                    nom:nom,
+                                                    prenom:prenom,
+                                                    cin:cin,
+                                                    activite:activite,
+                                                    addresse:addresse,
+                                                    lieu_exploitaion:lieu_exploitaion,
+                                                    stat:stat,
+                                                    nom_commercial:nom_commercial,
+                                                    confirmer:confirmer
+                                                },
+                                                success:function(auf){
+                                                    if(auf == 'success'){
+                                                        // alert('data inserted');
+                                                        Swal.fire(
+                                                            'Merci',
+                                                            'Votre Demande de NIF a été bien envoyé',
+                                                            'success' //icon ny eto
+                                                        )
+                                                        $('#nom').val("");
+                                                        $('#prenom').val("");
+                                                        $('#cin').val("");
+                                                        $('#activite').val("");
+                                                        $('#addresse').val("");
+                                                        $('#lieu_exploitaion').val("");
+                                                        $('#stat').val("");
+                                                        $('#nom_commercial').val("");
+                                                    }
+                                                    else{
+                                                        alert('nope');
+                                                    }
+                                                }
+                                            })  
                                     }
                                 }
                             })
+                            // 
                         }
                     }
                 })
