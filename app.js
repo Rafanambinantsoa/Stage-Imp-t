@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('.alert-warning').hide();
     $('.alert-success').hide();
-    $('[data-toggle="popover"]').popover();
     //modal 1
     $('#login').click(function () {
         var code = $('#code').val();
@@ -76,14 +75,13 @@ $(document).ready(function () {
     $('.bulle').click(function () {
         // alert('clicked');
         $('#NIF').modal('show');
+        $('#alert').removeClass('d-none');
+
     })
     $('#rechercher').click(function () {
-        // alert('clicked');
-        $('#nul').val("");
-        $('#cool').val("");
-        $('.alert-success').hide();
-        $('.alert-warning').hide();
+        // // alert('clicked');
         var search = $('#search').val();
+
         if (search != '') {
             $.ajax({
                 url: 'back_accueil/mon_nif.php',
@@ -91,14 +89,20 @@ $(document).ready(function () {
                 data: { search: search },
                 success: function (sir) {
                     if (sir == 'no') {
+                        $('#search').val("");
                         $('.alert-success').hide();
                         $('.alert-warning').show();
-                        $("#nul").append("Vous n'avez pas Encore de NIF");
+                        $(".alert-warning").fadeTo(2000, 500).slideUp(500, function () {
+                            $(".alert-warning").slideUp(500);
+                        });
+
                     }
                     else {
-                        $('.alert-success').show();
-                        $('.alert-warning').hide();
-                        $("#cool").append("Votre nif est" + sir);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Votre NIF est : ',
+                            text: sir,
+                        })
                     }
                 }
             })

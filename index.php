@@ -39,16 +39,16 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Poour pouvoir Voir NIF</p>
+            <p>Pour pouvoir Voir NIF</p>
             <input type="number" class="form-control" id="search">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" id="rechercher">Rechercher</button>
-            <div class="alert alert-success" role="alert">
-              <span id="cool"></span>
+            <div class="alert alert-success"  role="alert">
+              <p id="cool" ></p>
             </div>
-            <div class="alert alert-warning" role="alert">
-              <span id="nul"></span>
+            <div class="alert alert-warning"  role="alert">
+              <p>Vous n'avez pas Encore de N I F</p>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" id="login" class="btn btn-primary">Save changes</button>
+            <button type="button" id="login" class="btn btn-primary">Connexion</button>
           </div>
         </div>
       </div>

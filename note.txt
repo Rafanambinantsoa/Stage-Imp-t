@@ -6,3 +6,7 @@ A propos de l'admin (zany we ampio zany ny ary @ bd ohatra we information grade 
 
 Comment ajouter une photo dans une Base de Donnée
 Comment uploader une photo depuis la formulaire
+
+
+ary @ admin  le @ mofification ao no anaovana update , ohatra rajout activité sns @ alalan'ny modal bien-sûr
+ D le ary @ mon nif ary regleo le alert iny soloy zavatra hafa refa ts mety ohatra we toast na sweet alert
