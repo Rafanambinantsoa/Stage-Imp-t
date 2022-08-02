@@ -93,27 +93,57 @@ function idao() {
     })
 }
 // Quand on Click sur sur le Bouton modifier, on affiche le modal et les information à Modifier
-function update(kia){
+function update(kia) {
     // alert(kia);
     $('#hiddendata').val(kia);
     $('#exampleModal').modal("show");
 
     $.ajax({
-        url:'update.php',
-        type:'POST',
-        data:{
-            kia:kia
+        url: 'update.php',
+        type: 'POST',
+        data: {
+            kia: kia
         },
-        success:function(data,status){
+        success: function (data, status) {
             var userid = JSON.parse(data);
             $('#name').val(userid.nom),
-            $('#firstname').val(userid.prenom),
-            $('#nic').val(userid.cin),
-            $('#job').val(userid.activite),
-            $('#maps').val(userid.lieu_ex)
+                $('#firstname').val(userid.prenom),
+                $('#nic').val(userid.cin),
+                $('#job').val(userid.activite),
+                $('#maps').val(userid.lieu_ex)
         }
     })
-    
+
+}
+
+function modifier() {
+    // alert('Modifier');
+    var nom = $('#name').val();
+    var first = $('#firstname').val();
+    var nic = $('#nic').val();
+    var job = $('#job').val();
+    var maps = $('#maps').val();
+    var id = $('#hiddendata').val();
+
+    $.ajax({
+        url: 'mise.php',
+        type: 'POST',
+        data: {
+            nom: nom,
+            first: first,
+            nic: nic,
+            job: job,
+            maps: maps,
+            id:id
+        },
+        success: function (data) {
+            // alert(data);
+            toastr.success('Modification Successfull');
+            $('#exampleModal').modal("hide");
+            //Pour l'actualisation automatique des pages 
+            idao();
+        }
+    })
 }
 
 // function update() {

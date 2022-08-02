@@ -100,7 +100,7 @@ if (!isset($_SESSION['admini'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Sauvegarder</button>
+                        <button type="button" class="btn btn-primary" onclick="modifier()" >Mettre à Jour</button>
                     </div>
                 </div>
             </div>
