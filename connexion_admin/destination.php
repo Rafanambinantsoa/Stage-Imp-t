@@ -56,6 +56,57 @@ if (!isset($_SESSION['admini'])) {
     <!-- Content Start -->
     <div class="content">
 
+        <!-- update modal start -->
+
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modification d'Information / Rajout d'Activité </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Nom</span>
+                            <input id="name" type="text" class="form-control">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Prenom</span>
+                            <input id="firstname" type="text" class="form-control">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">C I N</span>
+                            <input id="nic" type="text" class="form-control">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Activité </span>
+                            <input id="job" type="text" class="form-control">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Lieu d'Exploitation </span>
+                            <input id="maps" type="text" class="form-control">
+                            <input type="text" id="hiddendata" hidden>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Sauvegarder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- update modal end -->
+
         <!-- confirmer -->
         <input type="radio" id="confirmer" name="tabs" checked>
         <div class="con">
@@ -81,19 +132,7 @@ if (!isset($_SESSION['admini'])) {
         <input type="radio" id="activite" name="tabs">
         <div class="con">
             <h3>Modifications </h3>
-            <table class="table table-hover" id="tabl">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>NIF</th>
-                        <th>Activité</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+            <div id="modif"></div>
         </div>
     </div>
     <!-- Content End -->

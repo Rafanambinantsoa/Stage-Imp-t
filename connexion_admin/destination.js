@@ -69,6 +69,53 @@ function declarant() {
         }
     })
 }
+//Modification ou bien les mises à jour;
+function idao() {
+    // $('#hiddendata').val(updateid);
+
+    var sukuna = "true";
+    $.ajax({
+        url: 'updating.php',
+        type: 'POST',
+        data: {
+            sukuna: sukuna
+        },
+        success: function (data, status) {
+            $('#modif').html(data);
+            declarant();
+            $('#mise').click(function () {
+                // alert("kim");
+                // var mention   = $(this).parent("td").prev("td").prev("td").text();
+                // alert(mention);
+            })
+
+        }
+    })
+}
+// Quand on Click sur sur le Bouton modifier, on affiche le modal et les information à Modifier
+function update(kia){
+    // alert(kia);
+    $('#hiddendata').val(kia);
+    $('#exampleModal').modal("show");
+
+    $.ajax({
+        url:'update.php',
+        type:'POST',
+        data:{
+            kia:kia
+        },
+        success:function(data,status){
+            var userid = JSON.parse(data);
+            $('#name').val(userid.nom),
+            $('#firstname').val(userid.prenom),
+            $('#nic').val(userid.cin),
+            $('#job').val(userid.activite),
+            $('#maps').val(userid.lieu_ex)
+        }
+    })
+    
+}
+
 // function update() {
 //     $.get("destination.php", function(data) {
 //       $(".con").html(data);
@@ -84,11 +131,14 @@ $(document).ready(function () {
     confirmer();
     //les declarants
     declarant();
+    //modification;
+    idao();
     Swal.fire({
         icon: 'success',
         title: 'Connecté',
         text: 'Bonne Navigation',
     })
+
     $('#deconnexion').click(function () {
         var queen = 'oliver';
         bootbox.confirm("Voulez vous vraiment vous Deconnecter ?", function (result) {
